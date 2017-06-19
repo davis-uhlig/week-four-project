@@ -15,6 +15,7 @@
 
 
 // 5. Create a way to listen for a click that will play the song in the audio play
+let results = document.querySelector(".results");
 function onClick(){
 let userSearch = document.querySelector("#artist-search");
 
@@ -26,6 +27,7 @@ fetch("https://api.soundcloud.com/users?client_id=8538a1744a7fdaa59981232897501e
       // console.log(response);
 
       response.json().then(function(data) {
+        results.innerHTML = " ";
         // console.log("Here is the data:", data);
         let info = data[0];
         // console.log("First user:",info);
@@ -37,21 +39,21 @@ fetch("https://api.soundcloud.com/users?client_id=8538a1744a7fdaa59981232897501e
           // console.log(info);
           // console.log(userSearch.value === info.full_name);
 
-          if(userSearch.value === info.full_name) {
+
             // console.log("this works");
-            let results = document.querySelector(".results");
+
 
             let userPage = info.uri;
             let userId = info.id;
             // console.log("userpage:", userPage);
             getUserPage(info.uri);
-          }
+
         // }
         });
     });
     }
-        function getUserPage(hi){
-            fetch(hi + "/tracks?client_id=8538a1744a7fdaa59981232897501e04")
+        function getUserPage(user){
+            fetch(user + "/tracks?client_id=8538a1744a7fdaa59981232897501e04")
               .then(function(response) {
                   // console.log(response);
 
@@ -71,7 +73,9 @@ fetch("https://api.soundcloud.com/users?client_id=8538a1744a7fdaa59981232897501e
                       let paragraph = document.createElement("p");
                       let stream = userData.stream_url;
                       paragraph.id = stream;
-                      let results = document.querySelector(".results");
+
+
+
                       paragraph.innerHTML += " " + userData.user.username;
                       paragraph.innerHTML += ": " + '"' + userData.title + '"';
                       images.src = userData.artwork_url;
