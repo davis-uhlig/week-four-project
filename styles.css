@@ -1,0 +1,47 @@
+body {
+  background-color: #60d9f1;
+}
+
+h1 {
+  text-align: center;
+}
+
+.music-player {
+  width: 100%;
+}
+
+#artist-search {
+  width: 80%;
+  line-height: 250%;
+  padding-top: 2px;
+}
+
+.search-form{
+  margin-top: 5%;
+}
+
+#submit-button {
+  font-size: 100%;
+  width: 15%;
+  border: none;
+  line-height: 180%;
+  border-radius: 5px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.results div {
+  width: 15%;
+  margin: 5px;
+}
+
+.results img {
+  margin: 5px;
+}
+
+p {
+  cursor: pointer;
+}
